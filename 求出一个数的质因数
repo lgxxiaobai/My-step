@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	printf("%d=",n);
+	while (n > 1) {//**最后一个因数为素数
+
+		int k = (int)sqrt(n);
+		int i, flot = 0;//用flot来判断最后一个素数
+		for (i = 2; i <= k; i++) {//n不是素数，则必然存在在 范围内存在能够整除的数
+			if (n % i == 0) {
+				printf("%d*", i);
+				n /= i;
+				flot = 1;
+				break;
+
+			}
+		}
+		if (flot == 0) {
+			printf("%d", n);//只输出%d 不输出*
+			break;
+		}
+	}
+	return 0;
+}
